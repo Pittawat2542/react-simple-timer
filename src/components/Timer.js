@@ -4,7 +4,9 @@ export default ({ hours, minutes, seconds }) => {
   return (
     <div>
       <h1>
-        {hours || "00"}:{minutes || "00"}:{seconds || "00"}
+        {hours < 10 ? "0" + hours : hours}:
+        {minutes < 10 ? "0" + minutes : minutes}:
+        {seconds < 10 ? "0" + seconds : seconds}
       </h1>
     </div>
   );
