@@ -10,6 +10,18 @@ export default class TimerDashboard extends Component {
     isStarted: false
   };
 
+  componentWillMount() {
+    const timerStr = localStorage.getItem("timer");
+    if (timerStr !== null) {
+      const timer = JSON.parse(timerStr);
+      this.setState({
+        hours: timer.hours,
+        minutes: timer.minutes,
+        seconds: timer.seconds
+      });
+    }
+  }
+
   componentDidMount() {
     this.interval = setInterval(() => {
       if (this.state.isStarted) {
@@ -24,10 +36,19 @@ export default class TimerDashboard extends Component {
         }
       }
     }, 1000);
+
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
   }
 
   handleToggleTimer = () => {
@@ -42,6 +63,17 @@ export default class TimerDashboard extends Component {
       minutes: 0,
       seconds: 0
     });
+  };
+
+  saveStateToLocalStorage = () => {
+    localStorage.setItem(
+      "timer",
+      JSON.stringify({
+        hours: this.state.hours,
+        minutes: this.state.minutes,
+        seconds: this.state.seconds
+      })
+    );
   };
 
   render() {
