@@ -1,0 +1,48 @@
+.App {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+}
+
+.button {
+  display: inline-block;
+  margin: 0 .5rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 0.317rem;
+  background-color: #aaa;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+.button:active {
+  box-shadow: inset 0 3px 4px hsla(0, 0%, 0%, 0.2);
+}
+
+.button:focus {
+  outline: thin dotted #444;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.button_primary {
+	background-color: #1fa3ec;
+}
+
+.button_secondary {
+	background-color: #e98724;
+}

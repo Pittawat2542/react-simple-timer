@@ -84,10 +84,10 @@ export default class TimerDashboard extends Component {
           minutes={this.state.minutes}
           seconds={this.state.seconds}
         />
-        <button onClick={this.handleToggleTimer}>
+        <button class="button button_primary" onClick={this.handleToggleTimer}>
           {this.state.isStarted ? "Pause" : "Start"}
         </button>
-        <button onClick={this.handleResetTimer}>Reset</button>
+        <button class="button button_secondary" onClick={this.handleResetTimer}>Reset</button>
       </div>
     );
   }
